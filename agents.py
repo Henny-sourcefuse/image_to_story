@@ -1,8 +1,5 @@
 from crewai import Agent
 from langchain_openai import ChatOpenAI
-
-
-
 import os
 from tools.vision_tools import BlipImageCaptioner
 from langchain.tools import Tool
@@ -13,7 +10,7 @@ llm =llm = ChatOpenAI(
     api_key=os.environ["OPENAI_API_KEY"]
 )
 
-# 1. Vision Interpreter Agent
+
 caption_interpreter = Agent(
     role="Image Analyst",
     goal="Generate detailed and accurate captions from images using BLIP model",
@@ -28,7 +25,7 @@ caption_interpreter = Agent(
     allow_delegation=False
 )
 
-# 2. Lore Builder
+
 lore_agent = Agent(
     role="World Building Architect",
     goal="Craft engaging storylines that weave together characters and setting",
@@ -41,7 +38,6 @@ lore_agent = Agent(
     allow_delegation=False
 )
 
-# 3. Character Smith
 character_agent = Agent(
     role="Character Development Specialist",
     goal="Create compelling characters based on visual elements from the image caption",
@@ -54,7 +50,7 @@ character_agent = Agent(
     allow_delegation=False
 )
 
-# 4. Story Weaver
+
 story_agent = Agent(
     role="Story Synthesis Master",
     goal="Combine all elements into a cohesive, engaging final story with a plot and genre(comedy or suspense or drama).Plot driven not character driven",

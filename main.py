@@ -6,9 +6,9 @@ from agents import caption_interpreter, lore_agent, character_agent, story_agent
 from tasks import StoryTasks
 
 if __name__ == "__main__":
-    image_path = input("Enter the image filename (e.g., img.jpg): ")
+    image_path = input("Enter the image filename : ")
 
-    # Initialize tasks with the image path
+ 
     task_builder = StoryTasks(image_path)
     tasks = task_builder.all_tasks()
 
